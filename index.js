@@ -10,7 +10,7 @@ const {router} = require('./config/routes');
 
 const app = express();
 
-const port = 4000;
+
 
 
 app.use(cors())
@@ -30,6 +30,9 @@ COMPLETED: ${tokens.status(req, res)} in  ${tokens['response-time'](req, res)}ms
 app.use(function(req, res, next) {
         res.status(404).send({ error : 'Route not found'});
   });
+
+const port = process.env.PORT || 5000;
+
 
 app.listen(port,() => {
     console.log('Server - Listening to port '+port);
